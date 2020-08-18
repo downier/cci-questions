@@ -4,6 +4,16 @@
 
 function URLify(string, integer){
   let output = ''
-  
+  for (i = 0; i < integer; i++){
+    if(string.split('')[i] === ' ') {
+      output += '%20'
+    } else {
+      output += string.split('')[i];
+    }
+  }
   return output;
 }
+
+let test = 'Mr John Smith'
+
+console.log(URLify(test, 13))
