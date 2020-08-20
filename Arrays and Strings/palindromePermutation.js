@@ -4,7 +4,7 @@ function palindromePermutaton(string){
   let array = string.split('');
   let count = {};
   for(i = 0; i < array.length; i++){
-    array[i] in count ? count[array[i]]+=1 : count[array[i]] = 1;
+    array[i] in count ? count[array[i]] += 1 : count[array[i]] = 1;
   }
   let odd = 0;
   for (const [key, value] of Object.entries(count)) {
