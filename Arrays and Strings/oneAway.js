@@ -6,17 +6,36 @@
 // pale, bake -> false
 
 function oneAway(x,y){
-  if (x === y)return true;
+  //length check
   if (Math.abs(x.length - y.length) > 1)return false;
-  let count = 0;
-  for(i = 0; i < x.length; i++) {
-    if(x.split('')[i] !== y.split('')[i]){
-      count++;
+
+  //sort strings by length with s2 being longer
+  let s1 = x.length < y.length ? x : y;
+  let s2 = x.length < y.length ? y : x;
+  let count1 = 0;
+  let count2 = 0;
+  let edits = false;
+
+  while(count2 < s2.length && count1 < s1.length){
+    if(s1.charAt(count1) != s2.charAt(count2)){
+      //check if first edit made
+      if(edits)return false;
+      edits = true;
+
+      //if we replace move short counter
+      if(s1.length == s2.length){
+        count1++;
+      }
+
+    } else {
+      //update short counter on match
+      count1++;
     }
-    if(count > 1)return false;
+    //longer counter always update
+    count2++;
   }
   return true;
 }
-let test1 = 'pale'
+let test1 = 'bale'
 let test2 = 'ple'
 console.log(oneAway(test1,test2))
