@@ -19,7 +19,10 @@ function stringCompression(string){
       compression += count;
     }
   }
-  return compression;
+  if(string.length > compression.length) {
+    return compression;
+  }
+  return string;
 }
 
 let test = 'aaabbbbaacccc'
