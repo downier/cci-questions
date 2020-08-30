@@ -15,13 +15,10 @@ function zeroMatrix(matrix){
     if(zeroCount == 0){
       newMatrix.push(row)
     } else {
-      let zeros = [];
-      zeros.length = matrix.length;
+      let zeros = new Array(matrix.length).fill(0);
       newMatrix.push(zeros.fill(0))
     }
   }
-
-
   return newMatrix;
 }
 
